@@ -9,11 +9,10 @@ export const inputCheckboxVariants = cva(`
       variant: {
         none: "",
         default: `
-          border-2 border-solid 
-          border-green-base
-          hover:border-green-dark hover:bg-green-dark/20
-          checked:border-green-base checked:bg-green-base
-          group-hover:checked:border-green-dark group-hover:checked:bg-green-dark
+          border-2 border-solid border-green-base
+        hover:border-green-dark hover:bg-green-dark/20
+        checked:border-green-base checked:bg-green-base
+        group-hover:checked:border-green-dark group-hover:checked:bg-green-dark
         `,
       },
       size: {
@@ -24,6 +23,7 @@ export const inputCheckboxVariants = cva(`
       },
     },
     defaultVariants: {
+      variant: "default",
       size: "md",
       disabled: false,
     },

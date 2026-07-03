@@ -1,4 +1,5 @@
 import Container from "../components/container";
+import TaskItem from "../cor-components/task-item";
 import TasksSummary from "../cor-components/tasks-summary";
 
 export default function PageHome() {
@@ -7,7 +8,7 @@ export default function PageHome() {
             <header className="flex items-center justify-between">
                 <TasksSummary />
             </header>
-            
+            <TaskItem />
         </Container>
     );
 }
