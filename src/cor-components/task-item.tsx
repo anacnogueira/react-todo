@@ -23,13 +23,17 @@ export default function TaskItem({task}:TaskItemProps) {
 
     const [taskTitle, setTaskTitle] = React.useState(task.title || '')
 
-    const { updateTask, updateTaskStatus } = useTask();
+    const { updateTask, updateTaskStatus, deleteTask } = useTask();
 
     function handleEditTask() {
         setIsEditing(true);
     }
 
     function handleExitEditTask() {
+        if (task.state === TaskState.Creating) {
+            deleteTask(task.id);
+        }
+        
         setIsEditing(false);
     }
 
@@ -50,6 +54,10 @@ export default function TaskItem({task}:TaskItemProps) {
         updateTaskStatus(task.id, checked)
     }
 
+    function handleDeleteTask() {
+        deleteTask(task.id)
+    }
+
     return (
         <Card size="md">
             {
@@ -67,6 +75,7 @@ export default function TaskItem({task}:TaskItemProps) {
                                 type="button" 
                                 icon={ TrashIcon }
                                 variant="tertiary"
+                                onClick={handleDeleteTask}
                             />
                             <ButtonIcon 
                                 type="button"
